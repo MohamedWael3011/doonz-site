@@ -1,7 +1,7 @@
-import ShadowLogo from "../assets/DOONZ_LOGO_shadow.png";
+import ShadowLogo from "../../assets/DOONZ_LOGO_shadow.png";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 gsap.registerPlugin(useGSAP);
 
 function Home() {
@@ -11,7 +11,7 @@ function Home() {
   }); 
   return (
     <>
-      <div className="w-full flex items-start justify-evenly h-[120vh]">
+      <div className="w-full flex items-start justify-evenly h-[110vh]">
         <div className="lg:grid lg:grid-cols-2 flex flex-col justify-evenly h-[50vh] xl:max-w-[1280px] w-full mt-[15vw] relative z-10  m-0 overflow-hidden">
         <div className="flex flex-col items-center mt-[50px]">
           <h3 className="text-white text-6xl">Welcome to the world of</h3>

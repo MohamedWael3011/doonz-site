@@ -1,8 +1,11 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
 import './index.css'
-import Home from './components/Home'
+import Home from './components/pages/Home'
 import NavBar from './components/nav-bar/NavBar'
 import BackgroundImage from './assets/Background.png';
+import RafflePage from './components/pages/Raffle';
+import AdminPage from './components/pages/Admin';
+import NFTs from './components/pages/NFTs';
 
 
 function App() {
@@ -13,6 +16,12 @@ function App() {
         <Routes>
           <Route path="/" element={<Navigate to='/home' />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/raffle" element={<RafflePage />} />
+          <Route path="/raffle-admin" element={<AdminPage />} />
+          <Route path="/nfts" element={<NFTs />} />
+
+
+
         </Routes>
         </main>
   )

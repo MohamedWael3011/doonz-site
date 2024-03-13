@@ -3,8 +3,17 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { BsDiscord, BsTwitterX } from "react-icons/bs";
 import Logo from "../../assets/DOONZ_LOGO.png"
+import { ConnectWallet, useAddress, useContract, useContractRead } from "@thirdweb-dev/react";
+import { RAFFLE_ADDRESS } from "../../consts/addresses";
+import { Link } from "react-router-dom";
 
 export default function NavBar() {
+
+  const address  = useAddress();
+  const {contract} = useContract(RAFFLE_ADDRESS);
+
+  const {data:isOwner, isLoading: isLoadingOwner} = useContractRead(contract,"isOwner",[address]);
+
   const [sideBar, setSideBar] = useState(false);
   const navRef = useRef(null);
   const handleSideBar = () => {
@@ -35,19 +44,22 @@ export default function NavBar() {
 
         <ul className="hidden md:flex uppercase">
           <li className="flex items-center navitem px-4 whitespace-nowrap hover:tracking-widest   hover:underline hover:decoration-pink-400  hover:duration-300 hover:ease-in">
-            <a href="#">home</a>
+            <a href="/home">home</a>
           </li>
           <li className="flex items-center navitem px-4 whitespace-nowrap hover:tracking-widest   hover:underline hover:decoration-pink-400  hover:duration-300 hover:ease-in">
-            <a href="#">nfts</a>
+            <a href="/nfts">nfts</a>
           </li>
+          {/* <li className="flex items-center navitem px-4 whitespace-nowrap hover:tracking-widest   hover:underline hover:decoration-pink-400  hover:duration-300 hover:ease-in">
+            <a  href="/erc20">erc-20</a>
+          </li> */}
           <li className="flex items-center navitem px-4 whitespace-nowrap hover:tracking-widest   hover:underline hover:decoration-pink-400  hover:duration-300 hover:ease-in">
-            <a href="#">erc-20</a>
+            <a href="/staking">{"staking (coming soon)"}</a>
           </li>
+          {/* <li className="flex items-center navitem px-4 whitespace-nowrap hover:tracking-widest   hover:underline hover:decoration-pink-400  hover:duration-300 hover:ease-in">
+            <a href="/freebies">freebies</a>
+          </li> */}
           <li className="flex items-center navitem px-4 whitespace-nowrap hover:tracking-widest   hover:underline hover:decoration-pink-400  hover:duration-300 hover:ease-in">
-            <a href="#">staking</a>
-          </li>
-          <li className="flex items-center navitem px-4 whitespace-nowrap hover:tracking-widest   hover:underline hover:decoration-pink-400  hover:duration-300 hover:ease-in">
-            <a href="#">freebies</a>
+            <a href="/raffle">raffle</a>
           </li>
 
           <div className="flex items-center gap-4 navitem px-4 whitespace-nowrap">
@@ -63,10 +75,12 @@ export default function NavBar() {
             >
               <BsDiscord />
             </a>
+            {!isLoadingOwner && isOwner && (<Link to="/raffle-admin">Admin Panel</Link>)}
+            <ConnectWallet/>
           </div>
         </ul>
         <div onClick={handleSideBar} className="block md:hidden">
-          {!sideBar ? <Menu size={20} /> : <X size={20} />}
+          {!sideBar ?( <><div className="flex items-center gap-5"><ConnectWallet /><Menu size={20} /></div></>) : <X size={20} />}
         </div>
         <div
           className={
@@ -82,18 +96,24 @@ export default function NavBar() {
             <li className="flex items-center navitem px-4 whitespace-nowrap hover:tracking-widest   hover:underline hover:decoration-pink-400  hover:duration-300 hover:ease-in">
               <a href="#">home</a>
             </li>
-            <li className="flex items-center navitem px-4 whitespace-nowrap hover:tracking-widest   hover:underline hover:decoration-pink-400  hover:duration-300 hover:ease-in">
+            {/* <li className="flex items-center navitem px-4 whitespace-nowrap hover:tracking-widest   hover:underline hover:decoration-pink-400  hover:duration-300 hover:ease-in">
               <a href="#">nfts</a>
             </li>
             <li className="flex items-center navitem px-4 whitespace-nowrap hover:tracking-widest   hover:underline hover:decoration-pink-400  hover:duration-300 hover:ease-in">
               <a href="#">erc-20</a>
-            </li>
+            </li> */}
             <li className="flex items-center navitem px-4 whitespace-nowrap hover:tracking-widest   hover:underline hover:decoration-pink-400  hover:duration-300 hover:ease-in">
-              <a href="#">staking</a>
+              <a href="#">{"staking (coming soon)"}</a>
             </li>
-            <li className="flex items-center navitem px-4 whitespace-nowrap hover:tracking-widest   hover:underline hover:decoration-pink-400  hover:duration-300 hover:ease-in">
+            {/* <li className="flex items-center navitem px-4 whitespace-nowrap hover:tracking-widest   hover:underline hover:decoration-pink-400  hover:duration-300 hover:ease-in">
               <a href="#">freebies</a>
+            </li> */}
+            <li className="flex items-center navitem px-4 whitespace-nowrap hover:tracking-widest   hover:underline hover:decoration-pink-400  hover:duration-300 hover:ease-in">
+              <a href="/raffle">raffle</a>
             </li>
+            {!isLoadingOwner && isOwner && (            <li className="flex items-center navitem px-4 whitespace-nowrap hover:tracking-widest   hover:underline hover:decoration-pink-400  hover:duration-300 hover:ease-in">
+              <a href="/raffle-admin">Admin Panel</a>
+            </li>)}
           </ul>
         </div>
       </div>
