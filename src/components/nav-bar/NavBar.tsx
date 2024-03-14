@@ -46,12 +46,15 @@ export default function NavBar() {
           <li className="flex items-center navitem px-4 whitespace-nowrap hover:tracking-widest   hover:underline hover:decoration-pink-400  hover:duration-300 hover:ease-in">
             <a href="/home">home</a>
           </li>
-          <li className="flex items-center navitem px-4 whitespace-nowrap hover:tracking-widest   hover:underline hover:decoration-pink-400  hover:duration-300 hover:ease-in">
+          {/* <li className="flex items-center navitem px-4 whitespace-nowrap hover:tracking-widest   hover:underline hover:decoration-pink-400  hover:duration-300 hover:ease-in">
             <a href="/nfts">nfts</a>
-          </li>
+          </li> */}
           {/* <li className="flex items-center navitem px-4 whitespace-nowrap hover:tracking-widest   hover:underline hover:decoration-pink-400  hover:duration-300 hover:ease-in">
             <a  href="/erc20">erc-20</a>
           </li> */}
+                    <li className="flex items-center navitem px-4 whitespace-nowrap hover:tracking-widest   hover:underline hover:decoration-pink-400  hover:duration-300 hover:ease-in">
+            <a href="/raffle">{"marketplace (coming soon)"}</a>
+          </li>
           <li className="flex items-center navitem px-4 whitespace-nowrap hover:tracking-widest   hover:underline hover:decoration-pink-400  hover:duration-300 hover:ease-in">
             <a href="/staking">{"staking (coming soon)"}</a>
           </li>
@@ -102,6 +105,9 @@ export default function NavBar() {
             <li className="flex items-center navitem px-4 whitespace-nowrap hover:tracking-widest   hover:underline hover:decoration-pink-400  hover:duration-300 hover:ease-in">
               <a href="#">erc-20</a>
             </li> */}
+                        <li className="flex items-center navitem px-4 whitespace-nowrap hover:tracking-widest   hover:underline hover:decoration-pink-400  hover:duration-300 hover:ease-in">
+              <a href="#">{"marketplace (coming soon)"}</a>
+            </li>
             <li className="flex items-center navitem px-4 whitespace-nowrap hover:tracking-widest   hover:underline hover:decoration-pink-400  hover:duration-300 hover:ease-in">
               <a href="#">{"staking (coming soon)"}</a>
             </li>
