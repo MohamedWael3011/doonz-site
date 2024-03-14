@@ -22,7 +22,7 @@ export default function PrizeNFT() {
   return (
     <Card p={'15%'}>
         <Heading p={'2'} textAlign={"center"}>Prize NFT</Heading>
-        {!LoadingPrizeNft  && !LoadingNft (
+        {!LoadingPrizeNft  && !LoadingNft && (
             <Stack  textAlign={'center'}>
                 <Flex justifyContent={"center"}>
                     <ThirdwebNftMedia metadata={nft?.metadata!} height="80%" width="80%"/>
