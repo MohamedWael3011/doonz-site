@@ -4,6 +4,6 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   define: {
-    'process.env.VITE_TEMPLATE_CLIENT_ID': JSON.stringify(process.env.VITE_TEMPLATE_CLIENT_ID),
+    'VITE_TEMPLATE_CLIENT_ID': JSON.stringify(process.env.VITE_TEMPLATE_CLIENT_ID),
   },
 })
