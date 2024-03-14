@@ -18,7 +18,7 @@ const root = createRoot(container!);
 root.render(
   <React.StrictMode>
     <ThirdwebProvider
-      clientId={import.meta.env.VITE_TEMPLATE_CLIENT_ID}
+      clientId={"06182ba2a536b15aa896ea74facd2dfc"}
       activeChain={activeChain}
     >
       <BrowserRouter>

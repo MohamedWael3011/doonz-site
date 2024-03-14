@@ -12,21 +12,21 @@ export default function PrizeNFT() {
     const{contract:NftContract} = useContract(prizeNFTContractAddress);
 
     const{data:prizeNftMetadata, isLoading:LoadingPrizeNft} = useContractMetadata(NftContract);
+
     const{data:nft, isLoading:LoadingNft} = useNFT(NftContract,nftTokenId);
-
-
 
 
 
   return (
     <Card p={'15%'}>
         <Heading p={'2'} textAlign={"center"}>Prize NFT</Heading>
-        {!LoadingPrizeNft && !LoadingNft && (
+        {!LoadingPrizeNft  && !LoadingNft && (
             <Stack  textAlign={'center'}>
                 <Flex justifyContent={"center"}>
                     <ThirdwebNftMedia metadata={nft?.metadata!} height="80%" width="80%"/>
                 </Flex>
                 <Box>
+
                     <Text fontSize="2xl" fontWeight={"bold"}>{prizeNftMetadata?.name}</Text>
                     <Text fontWeight={"bold"}>{nft?.metadata.name}</Text>
 
