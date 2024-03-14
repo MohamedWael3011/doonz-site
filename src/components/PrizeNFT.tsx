@@ -7,13 +7,13 @@ export default function PrizeNFT() {
 
     const {contract:raffleContract} = useContract(RAFFLE_ADDRESS);
     const{data:prizeNFTContractAddress} = useContractRead(raffleContract,"nftAddress");
-    const{data:nftTokenId} = useContractRead(raffleContract,"nftId");
+    // const{data:nftTokenId} = useContractRead(raffleContract,"nftId");
 
     const{contract:NftContract} = useContract(prizeNFTContractAddress);
 
     const{data:prizeNftMetadata, isLoading:LoadingPrizeNft} = useContractMetadata(NftContract);
 
-    const{data:nft, isLoading:LoadingNft} = useNFT(NftContract,nftTokenId);
+    const{data:nft, isLoading:LoadingNft} = useNFT(NftContract,50);
 
 
 
