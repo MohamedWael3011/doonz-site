@@ -1,7 +1,6 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { ThirdwebProvider } from "@thirdweb-dev/react";
-import {  Polygon } from "@thirdweb-dev/chains";
 
 import "./index.css";
 import App from "./App";
